@@ -14,3 +14,18 @@ jobs:
               run: npm ci #ci is used to install all the dependancies of the same version used during development
             - name: Run tests
               run: npm test
+
+    deploy:
+        # needs: test     #To run sequencial execution
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone
+              uses: actions/checkout@v5
+            - name: Install nodejs
+              uses: actions/setup-node@v3
+            - name: Install Dependancies
+              run: npm ci
+            - name: Build
+              run: npm run build
+            - name: Deploy
+              run: echo "Deploying...."
