@@ -16,7 +16,7 @@ jobs:
               run: npm test
 
     deploy:
-        # needs: test     #To run sequencial execution
+        needs: test #To run sequencial execution
         runs-on: ubuntu-latest
         steps:
             - name: Clone
