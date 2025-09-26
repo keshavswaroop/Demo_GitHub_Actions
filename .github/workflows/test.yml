@@ -1,0 +1,16 @@
+name: Test Project
+on: push
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone the repo
+              uses: actions/checkout@v5
+            - name: Install NodeJS # Nodejs will be available pre installed
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+            - name: Install Dependancies
+              run: npm ci #ci is used to install all the dependancies of the same version used during development
+            - name: Run tests
+              run: npm test
